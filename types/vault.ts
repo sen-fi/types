@@ -1,0 +1,57 @@
+/**
+ * Shared Vault Types
+ * Used by both sen-app (client) and sen-agent (server)
+ */
+
+export type VaultAsset =
+  | 'USDC'
+  | 'USDC+'
+  | 'SOL'
+  | 'WETH'
+  | 'ZBTC'
+  | 'GLDX'
+  | 'NVDA';
+
+export interface VaultAllocationData {
+  usdc?: number;
+  usdcPlus?: number;
+  sol?: number;
+  weth?: number;
+  zbtc?: number;
+  gldx?: number;
+  nvda?: number;
+  lastUpdated?: Date;
+}
+
+export interface VaultAllocation {
+  userId: string;
+  walletAddress: string;
+  allocations: VaultAllocationData;
+  presetName?: string;
+  presetReferralCode?: string;
+  createdAt?: number;
+  updatedAt?: number;
+  // Flattened fields for backward compatibility
+  usdc?: number;
+  usdcPlus?: number;
+  sol?: number;
+  weth?: number;
+  zbtc?: number;
+  gldx?: number;
+  nvda?: number;
+  lastUpdated?: Date;
+  lastRebalanced?: Date;
+}
+
+export interface VaultBalance {
+  asset: VaultAsset;
+  balance: number;
+  usdValue?: number;
+  isDelegated: boolean;
+}
+
+export type AllocationPreset =
+  | 'conservative'
+  | 'balanced'
+  | 'growth'
+  | 'custom';
