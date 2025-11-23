@@ -14,7 +14,6 @@ export interface P2PSendRequest {
 export interface P2PSendResult {
   success: boolean;
   signature?: string;
-  isPER: boolean;
   error?: string;
 }
 
@@ -32,7 +31,6 @@ export interface TransferHistoryEntry {
   counterpartyWallet: string;
   amountUsdc: number;
   signature?: string;
-  isPER: boolean;
   status: 'success' | 'failed';
   error?: string;
   memo?: string;
