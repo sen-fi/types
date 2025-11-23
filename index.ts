@@ -11,3 +11,6 @@ export * from './types/vault';
 
 // User types
 export * from './types/user';
+
+// P2P types
+export * from './types/p2p';

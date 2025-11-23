@@ -55,3 +55,25 @@ export type AllocationPreset =
   | 'balanced'
   | 'growth'
   | 'custom';
+
+// API Response Types (Agent ↔ Mobile)
+
+export interface VaultBalanceWithPrice {
+  asset: VaultAsset;
+  balance: number;
+  decimals: number;
+  usdValue: number;
+  usdPrice: number;
+}
+
+export interface VaultResult {
+  balances: VaultBalanceWithPrice[];
+  totalUSDValue: number;
+  lastUpdated: string;
+}
+
+export interface VaultResponse {
+  success: boolean;
+  result?: VaultResult;
+  error?: string;
+}
